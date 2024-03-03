@@ -233,7 +233,7 @@ namespace UAC白名单小工具
             {
                 TextBox_程序名称.Text = "noUAC." + TextBox_程序名称.Text;
             }
-            string FolderName = "noUAC\\"
+            string FolderName = "noUAC\\";
             string TempFileName = Path.GetDirectoryName(Application.ExecutablePath) + @"\" + TextBox_程序名称.Text + ".xml";
             string XML_Text = Resources.XML_前 + Environment.NewLine + Resources.XML_程序位置_前 + TextBox_程序位置.Text + Resources.XML_程序位置_后;
             if (TextBox_启动参数.Text != "")
@@ -250,8 +250,8 @@ namespace UAC白名单小工具
             {
                 FileName = "schtasks.exe",
                 WindowStyle = ProcessWindowStyle.Hidden,
-                Arguments = "/create " + "/tn " + '"' + TextBox_程序名称.Text + '"' + " /xml " + '"' + @TempFileName + '"'
-                //Arguments = "/create " + "/tn " + '"' + FolderName + TextBox_程序名称.Text + '"' + " /xml " + '"' + @TempFileName + '"'
+                //Arguments = "/create " + "/tn " + '"' + TextBox_程序名称.Text + '"' + " /xml " + '"' + @TempFileName + '"'
+                Arguments = "/create " + "/tn " + '"' + FolderName + TextBox_程序名称.Text + '"' + " /xml " + '"' + @TempFileName + '"'
             };
             //Debug.Print("/create " + "/tn " + '"' + TextBox_程序名称.Text + '"' + " /xml " + '"' + @TempFileName + '"');
             //Schtasks.Verb = "runas";
@@ -268,8 +268,8 @@ namespace UAC白名单小工具
             IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(System.Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory) + @"\" + TextBox_程序名称.Text + ".lnk");
             //Debug.Print(Path.GetDirectoryName(Application.ExecutablePath) + @"\" + TextBox_程序名称.Text + ".lnk");
             shortcut.TargetPath = "schtasks.exe";
-            shortcut.Arguments = "/run " + "/tn " + '"' + TextBox_程序名称.Text + '"';
-            //shortcut.Arguments = "/run " + "/tn " + '"' + FolderName + TextBox_程序名称.Text + '"';
+            //shortcut.Arguments = "/run " + "/tn " + '"' + TextBox_程序名称.Text + '"';
+            shortcut.Arguments = "/run " + "/tn " + '"' + FolderName + TextBox_程序名称.Text + '"';
             shortcut.IconLocation = TextBox_程序位置.Text + ", 0";
             shortcut.WindowStyle = 7;
             shortcut.Save();
