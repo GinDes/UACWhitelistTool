@@ -27,4 +27,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: artifacts
-        path: "./Release/" 
+        path: "./Release/UAC白名单小工具.exe"
