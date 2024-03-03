@@ -26,5 +26,5 @@ jobs:
     - name: Archive production artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: artifacts
+        name: UACWhitelistTool.zip
         path: "./Release/UAC白名单小工具.exe"
