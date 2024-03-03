@@ -1,6 +1,7 @@
-name: .NET Framework Build
+name: build
 
 on: 
+  workflow_dispatch: # 添加 workflow_dispatch 触发器
   push:
     branches: [ main ]
   pull_request:
