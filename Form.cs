@@ -266,7 +266,8 @@ namespace UAC白名单小工具
         public void Create_Shortcut(string FolderName)
         {
             WshShell shell = new WshShell();
-            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(System.Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory) + @"\" + TextBox_程序名称.Text + ".lnk");
+            //IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(System.Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory) + @"\" + TextBox_程序名称.Text + ".lnk");
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(System.Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory) + @"\" + TextBox_程序名称.Text.Replace("noUAC.", "") + ".lnk");
             //Debug.Print(Path.GetDirectoryName(Application.ExecutablePath) + @"\" + TextBox_程序名称.Text + ".lnk");
             shortcut.TargetPath = "schtasks.exe";
             //shortcut.Arguments = "/run " + "/tn " + '"' + TextBox_程序名称.Text + '"';
