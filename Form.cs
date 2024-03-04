@@ -120,7 +120,7 @@ namespace UAC白名单小工具
         private void TextBox_程序名称_TextChanged(object sender, EventArgs e)
         {
             //TextBox_程序名称.Text = Regex.Replace(TextBox_程序名称.Text, @"[^\u4e00-\u9fa5_a-zA-Z0-9\.]", "");
-            TextBox_程序名称.Text = Regex.Replace(TextBox_程序名称.Text, @"[<>:/\\|*?\""]", "");;
+            TextBox_程序名称.Text = Regex.Replace(TextBox_程序名称.Text, @"[<>:/\\|*?\""]", "");
             //Debug.Print(TextBox_程序名称.Text);
             if (TextBox_程序名称.Text != "")
             {
